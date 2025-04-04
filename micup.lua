@@ -36,6 +36,10 @@ local Tabs = {
 
 local Options = Fluent.Options
 
+if setclipboard then
+	setclipboard("https://discord.gg/ErfvyBBa83")
+end
+
 do
 	Fluent:Notify({
 		Title = "Notification",
@@ -51,7 +55,7 @@ do
 
 	Tabs.Main:AddParagraph({
 		Title = "Discord Server",
-		Content = "Invite: "
+		Content = "Invite: https://discord.gg/ErfvyBBa83"
 	})
 
 	Tabs.Main:AddButton({

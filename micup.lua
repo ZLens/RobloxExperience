@@ -404,7 +404,7 @@ do
 					{
 						Title = "Confirm",
 						Callback = function()
-							loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/micuphub/refs/heads/main/infprem.lua", true))()
+							loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/RobloxExperience/refs/heads/main/infinite%20yield.lua", true))()
 						end
 					},
 					{
@@ -479,7 +479,7 @@ do
 					{
 						Title = "Confirm",
 						Callback = function()
-							loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/TheRobloxExperience/refs/heads/main/misc/reanimations.lua'))()
+							loadstring(game:HttpGet('https://raw.githubusercontent.com/ZLens/RobloxExperience/refs/heads/main/reanimations.lua'))()
 						end
 					},
 					{

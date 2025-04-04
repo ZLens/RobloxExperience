@@ -559,6 +559,31 @@ do
 			})
 		end
 	})
+	
+	Tabs.Universals:AddButton({
+		Title = "Emotes GUI",
+		Description = "Execute Emotes GUI (Comma)",
+		Callback = function()
+			Window:Dialog({
+				Title = "Execution",
+				Content = "Would you like to inject emotes gui?",
+				Buttons = {
+					{
+						Title = "Confirm",
+						Callback = function()
+							loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/RobloxExperience/refs/heads/main/emotegui.lua"))()
+						end
+					},
+					{
+						Title = "Cancel",
+						Callback = function() 
+
+						end
+					}
+				}
+			})
+		end
+	})
 
 	-- voice chat tab
 

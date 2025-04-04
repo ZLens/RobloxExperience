@@ -1741,7 +1741,7 @@ local function headtag(plr)
 	Frame.BackgroundTransparency = 1.000
 	Frame.BorderColor3 = Color3.fromRGB(31, 31, 31)
 	Frame.BorderSizePixel = 5
-	Frame.Position = UDim2.new(0.100000001, 0, 0, 0)
+	Frame.Position = UDim2.new(0, 0, 0, 0)
 	Frame.Size = UDim2.new(1, 0, 0.5, 0)
 	Frame.ZIndex = 2
 

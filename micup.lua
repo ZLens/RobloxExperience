@@ -584,6 +584,31 @@ do
 			})
 		end
 	})
+	
+	Tabs.Universals:AddButton({
+		Title = "Empty Tools",
+		Description = "Execute Empty Tools",
+		Callback = function()
+			Window:Dialog({
+				Title = "Execution",
+				Content = "Would you like to inject empty tools gui?",
+				Buttons = {
+					{
+						Title = "Confirm",
+						Callback = function()
+							loadstring(game:HttpGet("https://raw.githubusercontent.com/ZLens/RobloxExperience/refs/heads/main/emptytools.lua"))()
+						end
+					},
+					{
+						Title = "Cancel",
+						Callback = function() 
+
+						end
+					}
+				}
+			})
+		end
+	})
 
 	-- voice chat tab
 

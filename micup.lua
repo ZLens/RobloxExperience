@@ -347,6 +347,37 @@ do
 		end
 	})
 
+	local CopyAvatarInput = Tabs.Players:AddInput("Input", {
+		Title = "Copy Avatar",
+		Default = "",
+		Placeholder = "Username",
+		Numeric = false, -- Only allows numbers
+		Finished = true, -- Only calls callback when you press enter
+		Callback = function(Value)
+			local player = getPlayer(Value)
+
+			if player then
+				game.ReplicatedStorage:WaitForChild("ModifyUsername"):FireServer(player.Name)
+
+				Fluent:Notify({
+					Title = "Notification",
+					Content = "Copying Avatar",
+					SubContent = "We found the user in the server, attempting to copy avatar. This might not work due to in-game copy avatar permissions!", -- Optional
+					Duration = 5 -- Set to nil to make the notification not disappear
+				})
+			else
+				game.ReplicatedStorage:WaitForChild("ModifyUsername"):FireServer(Value)
+
+				Fluent:Notify({
+					Title = "Notification",
+					Content = "Copying Avatar",
+					SubContent = "Failed to find user in server, attempting to copy avtar through server..", -- Optional
+					Duration = 5 -- Set to nil to make the notification not disappear
+				})
+			end
+		end
+	})
+
 	Tabs.Players:AddButton({
 		Title = "Spectating",
 		Description = "Stop specting a player",
@@ -1554,27 +1585,14 @@ local function headtag(plr)
 
 	local permissions = {
 		owners = {
-			"starsorbitspace",
-			"lvasion"
+			"lvasion",
+			"pandaphoebe6760"
 		},
 		developers = {
 			"BOL012307",
 		},
 		staff = {
-			"Goodhelper12345",
-			"Sophieloveuu",
-			"auralinker",
-			"bliblu1099",
-			"bliblu10999",
-			"prfctz",
-			"kursedmes",
-			"ToshiroHina",
-			"captainalex1678",
-			"kittycatmad0",
-			"SlayersXoff",
-			"gigaultw",
-			"dq_bh",
-			"devTWTCHGR"
+
 		},
 		contributors = {
 			"ikDebris",
@@ -1582,7 +1600,7 @@ local function headtag(plr)
 			"restaxts"
 		},
 		customTags = {
-			{"lvasion", Color3.new(1, 0.666667, 1), "Head Developer"},
+			--{"lvasion", Color3.new(1, 0.666667, 1), "Head Developer"},
 		}
 	}
 

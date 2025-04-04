@@ -1653,7 +1653,7 @@ local function headtag(plr)
 			"BOL012307",
 		},
 		staff = {
-
+			"Khine2011"
 		},
 		contributors = {
 			"ikDebris",

@@ -11,7 +11,7 @@ local clientConfig = {
 }
 
 local Window = Fluent:CreateWindow({
-	Title = "Gold's Easy Hub v2 " --[[.. Fluent.Version]],
+	Title = "kiExe v9" --[[.. Fluent.Version]],
 	SubTitle = "by lvasion",
 	TabWidth = 160,
 	Size = UDim2.fromOffset(580, 460),
@@ -45,8 +45,8 @@ do
 	})
 
 	Tabs.Main:AddParagraph({
-		Title = "Gold's Easy Hub Version 2",
-		Content = "Welcome to Gold's Easy Hub Version 2, this script was built for Mic Up.\nIf you wish to report any bugs, please join our discord server."
+		Title = "kiExe v9",
+		Content = "Welcome to kiExe v90, this script was built for Mic Up.\nIf you wish to report any bugs, please join our discord server."
 	})
 
 	Tabs.Main:AddParagraph({
@@ -1542,7 +1542,7 @@ Fluent:Notify({
 })
 
 Fluent:Notify({
-	Title = "Gold's Easy Hub",
+	Title = "kiExe v9",
 	Content = "Our system has loaded successfully, attempting to send webhook data...",
 	Duration = 8
 })

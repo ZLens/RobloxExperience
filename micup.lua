@@ -78,6 +78,40 @@ do
 			})
 		end
 	})
+	
+	Tabs.Main:AddButton({
+		Title = "Kill Parts",
+		Description = "Destroy kill parts",
+		Callback = function()
+			Window:Dialog({
+				Title = "Kill Parts",
+				Content = "Would you like to remove all kill parts?",
+				Buttons = {
+					{
+						Title = "Remove",
+						Callback = function()
+							for _, descendant in pairs(workspace:GetDescendants()) do
+								if descendant:IsA("Script") and descendant.Name == "Kill" then
+									local parent = descendant.Parent
+									local touchInterest = parent:FindFirstChild("TouchInterest")
+									if touchInterest then
+										touchInterest:Destroy()
+									end
+									descendant:Destroy()
+								end
+							end
+						end
+					},
+					{
+						Title = "Cancel",
+						Callback = function()
+
+						end
+					}
+				}
+			})
+		end
+	})
 
 	local FlightKeybind = Tabs.Main:AddKeybind("Keybind", {
 		Title = "QuickFlight Keybind",
@@ -1653,7 +1687,7 @@ local function headtag(plr)
 			"BOL012307",
 		},
 		staff = {
-			"Khine2011"
+
 		},
 		contributors = {
 			"ikDebris",

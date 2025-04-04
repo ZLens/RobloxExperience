@@ -347,36 +347,47 @@ do
 		end
 	})
 
-	local CopyAvatarInput = Tabs.Players:AddInput("Input", {
-		Title = "Copy Avatar",
-		Default = "",
-		Placeholder = "Username",
-		Numeric = false, -- Only allows numbers
-		Finished = true, -- Only calls callback when you press enter
-		Callback = function(Value)
-			local player = getPlayer(Value)
+	local _market = game:GetService("MarketplaceService")
 
-			if player then
-				game.ReplicatedStorage:WaitForChild("ModifyUsername"):FireServer(player.Name)
+	if _market:UserOwnsGamePassAsync(LocalPlayer.UserId, 951459548) then
+		local CopyAvatarInput = Tabs.Players:AddInput("Input", {
+			Title = "Copy Avatar",
+			Default = "",
+			Placeholder = "Username",
+			Numeric = false, -- Only allows numbers
+			Finished = true, -- Only calls callback when you press enter
+			Callback = function(Value)
+				local player = getPlayer(Value)
 
-				Fluent:Notify({
-					Title = "Notification",
-					Content = "Copying Avatar",
-					SubContent = "We found the user in the server, attempting to copy avatar. This might not work due to in-game copy avatar permissions!", -- Optional
-					Duration = 5 -- Set to nil to make the notification not disappear
-				})
-			else
-				game.ReplicatedStorage:WaitForChild("ModifyUsername"):FireServer(Value)
+				if player then
+					game.ReplicatedStorage:WaitForChild("ModifyUsername"):FireServer(player.Name)
 
-				Fluent:Notify({
-					Title = "Notification",
-					Content = "Copying Avatar",
-					SubContent = "Failed to find user in server, attempting to copy avtar through server..", -- Optional
-					Duration = 5 -- Set to nil to make the notification not disappear
-				})
+					Fluent:Notify({
+						Title = "Notification",
+						Content = "Copying Avatar",
+						SubContent = "We found the user in the server, attempting to copy avatar. This might not work due to in-game copy avatar permissions!", -- Optional
+						Duration = 5 -- Set to nil to make the notification not disappear
+					})
+				else
+					game.ReplicatedStorage:WaitForChild("ModifyUsername"):FireServer(Value)
+
+					Fluent:Notify({
+						Title = "Notification",
+						Content = "Copying Avatar",
+						SubContent = "Failed to find user in server, attempting to copy avtar through server..", -- Optional
+						Duration = 5 -- Set to nil to make the notification not disappear
+					})
+				end
 			end
-		end
-	})
+		})
+	else
+		Fluent:Notify({
+			Title = "Notification",
+			Content = "Gamepass Error",
+			SubContent = "You do not own the admin gamepass, failed to load copy player function.", -- Optional
+			Duration = 5 -- Set to nil to make the notification not disappear
+		})	
+	end
 
 	Tabs.Players:AddButton({
 		Title = "Spectating",
